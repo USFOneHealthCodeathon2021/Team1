@@ -1,0 +1,75 @@
+if(Clinvar==1||Clinvar==3){
+                out.println(echo("Searching clinvar ..."));
+                out.println("java -cp "+workdir+System.getProperty("path.separator")+correctDirectory(resourcesdir+"/javaclass/")+" -Xmx"+maxHeap+"g"+" add_clinvar_commandline4 "+workdir+"annotation.in."+n+".gz true 1 2 3 4 "+"\""+correctDirectory(resourcesdir+clinvardir+"hg"+hg)+"clinvar_20190311.vcf.gz.summary.gz"+"\"");
+                out.println(mv+" "+workdir+"annotation.in."+n+".gz.addClinvar.gz "+workdir+"annotation.in."+(++n)+".gz");
+                if(notretain)out.println(rm+" "+workdir+"annotation.in."+(n-1)+".gz");
+                
+                out.println("java -cp "+correctDirectory(resourcesdir+"/javaclass/")+" append_non_empty_lines "+snpoutfile+" "+correctDirectory(resourcesdir+"/javaclass/")+"clinvar4.txt");
+                out.println(echo ("Done. ")); out.println(date);
+            }
+            if(HGMD==1||HGMD==3){
+                out.println(echo("Searching HGMD ..."));
+                if(hg==19)out.println("java -cp "+workdir+System.getProperty("path.separator")+correctDirectory(resourcesdir+"/javaclass/")+" -Xmx"+maxHeap+"g"+" add_hg19_HGMD_SNV_commandline "+workdir+"annotation.in."+n+".gz true 1 2 3 4 "+"\""+correctDirectory(resourcesdir+HGMDdir)+"HGMD_Advanced_Substitutions.csv.formatted.tsv.gz"+"\"");
+                else if(hg==38)out.println("java -cp "+workdir+System.getProperty("path.separator")+correctDirectory(resourcesdir+"/javaclass/")+" -Xmx"+maxHeap+"g"+" add_hg19_HGMD_SNV_commandline "+workdir+"annotation.in."+n+".gz true 5 6 7 8 "+"\""+correctDirectory(resourcesdir+HGMDdir)+"HGMD_Advanced_Substitutions.csv.formatted.tsv.gz"+"\"");
+                out.println(mv+" "+workdir+"annotation.in."+n+".gz.addHGMD.gz "+workdir+"annotation.in."+(++n)+".gz");
+                if(notretain)out.println(rm+" "+workdir+"annotation.in."+(n-1)+".gz");
+                
+                out.println("java -cp "+correctDirectory(resourcesdir+"/javaclass/")+" append_non_empty_lines "+snpoutfile+" "+correctDirectory(resourcesdir+"/javaclass/")+"HGMD.txt");
+                out.println(echo ("Done. ")); out.println(date);
+            }
+            if(cosmic==1||cosmic==3){
+                out.println(echo("Searching COSMIC ..."));
+                out.println("java -cp "+workdir+System.getProperty("path.separator")+correctDirectory(resourcesdir+"/javaclass/")+" -Xmx"+maxHeap+"g"+" add_COSMIC_coding_commandline "+workdir+"annotation.in."+n+".gz true 1 2 3 4 "+"\""+correctDirectory(resourcesdir+COSMICdir+"hg"+hg)+"CosmicCodingMuts.vcf.gz"+"\"");
+                out.println(mv+" "+workdir+"annotation.in."+n+".gz.addCOSMIC.gz "+workdir+"annotation.in."+(++n)+".gz");
+                if(notretain)out.println(rm+" "+workdir+"annotation.in."+(n-1)+".gz");
+                
+                out.println("java -cp "+correctDirectory(resourcesdir+"/javaclass/")+" append_non_empty_lines "+snpoutfile+" "+correctDirectory(resourcesdir+"/javaclass/")+"cosmic.txt");
+                out.println(echo ("Done. ")); out.println(date);
+            }
+
+
+
+
+if(addsplice==1||addsplice==3){
+                out.println(echo("Searching SpliceAI .."));
+                out.println("java -cp "+workdir+System.getProperty("path.separator")+correctDirectory(resourcesdir+"/javaclass/")+" -Xmx"+maxHeap+"g"+" add_spliceAI_commandline "+workdir+"annotation.in."+n+".gz true 1 2 4 "+"\""+correctDirectory(resourcesdir+splicedir+"hg"+hg)+"spliceai_scores.masked.snv.hg19.vcf.gz"+"\"");
+                out.println(mv+" "+workdir+"annotation.in."+n+".gz.addspliceAI.gz "+workdir+"annotation.in."+(++n)+".gz");
+                if(notretain)out.println(rm+" "+workdir+"annotation.in."+(n-1)+".gz");
+                
+                out.println("java -cp "+correctDirectory(resourcesdir+"/javaclass/")+" append_non_empty_lines "+snpoutfile+" "+correctDirectory(resourcesdir+"/javaclass/")+"spliceAI.txt");
+                out.println(echo ("Done. ")); out.println(date);
+            }
+            
+            
+//
+//
+//
+//
+            if(Clinvar>1){
+                out.println(echo("Searching clinvar .."));
+                out.println("java -cp "+workdir+System.getProperty("path.separator")+correctDirectory(resourcesdir+"/javaclass/")+" -Xmx"+maxHeap+"g"+" add_clinvar_commandline4 "+workdir+"annotation.in."+n+".gz true 1 2 3 4 "+"\""+correctDirectory(resourcesdir+clinvardir+"hg"+hg)+"clinvar_20190311.vcf.gz.summary.gz"+"\"");
+                out.println(mv+" "+workdir+"annotation.in."+n+".gz.addClinvar.gz "+workdir+"annotation.in."+(++n)+".gz");
+                if(notretain)out.println(rm+" "+workdir+"annotation.in."+(n-1)+".gz");
+                
+                out.println("java -cp "+correctDirectory(resourcesdir+"/javaclass/")+" append_non_empty_lines "+indeloutfile+" "+correctDirectory(resourcesdir+"/javaclass/")+"clinvar4.txt");
+                out.println(echo ("Done. ")); out.println(date);
+            }
+            if(HGMD>1){
+                out.println(echo("Searching HGMD .."));
+                if(hg==19)out.println("java -cp "+workdir+System.getProperty("path.separator")+correctDirectory(resourcesdir+"/javaclass/")+" -Xmx"+maxHeap+"g"+" add_hg19_HGMD_indel_commandline "+workdir+"annotation.in."+n+".gz true 1 2 3 4 "+"\""+correctDirectory(resourcesdir+HGMDdir)+"HGMD_Advanced_Micro_Lesions.csv.formatted.tsv.gz"+"\"");
+                else if(hg==38)out.println("java -cp "+workdir+System.getProperty("path.separator")+correctDirectory(resourcesdir+"/javaclass/")+" -Xmx"+maxHeap+"g"+" add_hg19_HGMD_indel_commandline "+workdir+"annotation.in."+n+".gz true 5 6 7 8 "+"\""+correctDirectory(resourcesdir+HGMDdir)+"HGMD_Advanced_Micro_Lesions.csv.formatted.tsv.gz"+"\"");
+                out.println(mv+" "+workdir+"annotation.in."+n+".gz.addHGMD.gz "+workdir+"annotation.in."+(++n)+".gz");
+                if(notretain)out.println(rm+" "+workdir+"annotation.in."+(n-1)+".gz");
+                
+                out.println("java -cp "+correctDirectory(resourcesdir+"/javaclass/")+" append_non_empty_lines "+indeloutfile+" "+correctDirectory(resourcesdir+"/javaclass/")+"HGMD.txt");
+                out.println(echo ("Done. ")); out.println(date);
+            }
+            if(cosmic>1){
+                out.println(echo("Searching COSMIC .."));
+                out.println("java -cp "+workdir+System.getProperty("path.separator")+correctDirectory(resourcesdir+"/javaclass/")+" -Xmx"+maxHeap+"g"+" add_COSMIC_coding_commandline "+workdir+"annotation.in."+n+".gz true 1 2 3 4 "+"\""+correctDirectory(resourcesdir+COSMICdir+"hg"+hg)+"CosmicCodingMuts.vcf.gz"+"\"");
+                out.println(mv+" "+workdir+"annotation.in."+n+".gz.addCOSMIC.gz "+workdir+"annotation.in."+(++n)+".gz");
+                if(notretain)out.println(rm+" "+workdir+"annotation.in."+(n-1)+".gz");
+                
+                out.println("java -cp "+correctDirectory(resourcesdir+"/javaclass/")+" append_non_empty_lines "+indeloutfile+" "+correctDirectory(resourcesdir+"/javaclass/")+"cosmic.txt");
+                out.println(echo ("Done. ")); out.println(date);
+            }

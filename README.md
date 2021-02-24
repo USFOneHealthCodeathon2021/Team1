@@ -8,6 +8,7 @@
 
 
 ## Objectives
+To create a predictive model of adverse events for different SARS-CoV-2 vaccines based upon patient metadata
 
 ## Methods and Implementation
 

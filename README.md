@@ -12,7 +12,7 @@ To create a predictive model of adverse events for different SARS-CoV-2 vaccines
 
 ## Methods and Implementation
 
-![image](https://user-images.githubusercontent.com/55377207/109116586-cb5c3f80-770e-11eb-9755-ded4d33fcd10.png)
+
 
 ## Results 
 

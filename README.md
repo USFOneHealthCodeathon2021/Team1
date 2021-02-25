@@ -8,7 +8,7 @@
 
 
 ## Objectives
-To create a predictive model of adverse events for different SARS-CoV-2 vaccines based upon patient metadata.
+Our objective in this project is to design a predictive model based on machine learning for the adverse effects of COVID-19 vaccination in US. We will usee the relevant data (primarily metadata and disease history) stored in Vaccine adverse events reporting system (VAERS) managed by CDC. Finally, we would like to create an web app for the users to predict the possible adverse effect which they might experience post vaccination.   
 
 ## Methods and Implementation
 

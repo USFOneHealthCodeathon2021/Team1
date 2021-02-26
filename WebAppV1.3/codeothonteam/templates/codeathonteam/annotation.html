@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="../../favicon.ico">
+
+        <title></title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+        <!--<script src="//code.jquery.com/jquery-1.12.4.js"></script>  -->
+        <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+
+        <!-- Custom styles for this template -->
+        {% load static %}
+        <link href="{% static 'GAv1/style.css' %}" rel="stylesheet">
+
+        <style>
+            a.navbar-brand {
+                font-size: large;
+             }
+        </style>
+    </head>
+    <body>
+
+     <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#" ><span style="color:White; font-weight:bold; font-size:100%; font-family:Comic Sans MS; ">COVID-19 Vaccine Side Effects Predictor</span></a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="/codeothonteam/prepage">Home</a></li>
+            <li class="active"><a href="/codeothonteam/">Risk Stratification Tool</a></li>
+            <li><a href="/codeothonteam/about">About</a></li>
+
+            <li><a href="/codeothonteam/tutoral/">Resources</a></li>
+            <li><a href="/codeothonteam/contact/">Contact</a></li>
+          </ul>
+
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+        <ul class="nav nav-tabs">
+             <li role="presentation" ><a href="/codeothonteam/">Model data</a></li>
+             <li role="presentation" class="active"><a href="#">Model build</a></li>
+             <li role="presentation"><a href="/codeothonteam/process/">Model results</a></li>
+             <li role="presentation"><a href="/codeothonteam/personalinformation/">Personal prediction</a></li>
+        </ul>
+        <div class="container-fluid">
+            <div id="divProgressbar" ></div>
+            <div id="progressbar"></div>
+
+            <div class="col-xs-12 col-md-12">
+                <h4>Model is building...</h4>
+                <h4>When it is done, you can download model results in <b>Model Results</b> page.</h4>
+                <h4>If you select to notice by email, you will also get an email with download link.</h4>
+                <br><br>
+                 <h4>Data Summary</h4><br>
+                 <p><b>Table 1. Samples and Features</b></p>
+                 <!--<h4>After the running is done, you can download prediction result by click the link in your email or the button below </h4>
+                 <a href="/codeothonteam/process/" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Get Annotation Result</a>
+                 -->
+            </div>
+            <div class="col-xs-12 col-md-4">
+              <table id="table" class="table table-striped table-bordered" style="width: 100%;">
+                   <thead>
+                      <tr>
+                         <th>Sample number</th>
+                         <th>Feature number</th>
+                      </tr>
+                   </thead>
+                   <tbody>
+                      <tr>
+                        <td>{{ num_samples }}</td>
+                        <td>{{ num_features }}</td>
+                      </tr>
+                   </tbody>
+              </table>
+            </div><br>
+
+            <div class="col-xs-12 col-md-12">
+                <p><b>Table 2. Feature Name</b></p>
+            </div>
+            <div class="col-xs-12 col-md-9" style="overflow-x:scroll;">
+
+              <table id="table" class="table table-hover table-bordered" style="width: 100%;">
+
+                   <thead>
+                      <tr>
+                        {% for cell in featurename %}
+                            <th>{{ forloop.counter }}</th>
+                         {% endfor %}
+                      </tr>
+                   </thead>
+
+                   <tbody>
+                      <tr>
+                        {% for cell in featurename %}
+                        <td>{{ cell }}</td>
+                        {% endfor %}
+                      </tr>
+                   </tbody>
+              </table>
+            </div><br><br>
+            <div class="col-xs-12 col-md-12">
+                <br><br><p><b>Figure 1. Features vs Accuracy</b></p>
+            </div>
+            <div class="col-xs-12 col-md-12">
+                <!--<iframe src="{{output1}}" width=500 height=300></iframe>-->
+                <img src="{{output3}}" }} align="left">
+            </div>
+            
+       </div>
+
+    </div><!-- /.container -->
+
+    </body>
+</html>

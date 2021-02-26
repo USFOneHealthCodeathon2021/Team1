@@ -12,7 +12,6 @@ Our objective in this project is to design a predictive model based on machine l
 
 ## Methods and Implementation
 
-![image](https://user-images.githubusercontent.com/55377207/109116806-1b3b0680-770f-11eb-8384-24d0bb4f7d07.png)
 
 
 

@@ -14,6 +14,16 @@ Our objective in this project is to design a predictive model based on machine l
 
 ![image](https://user-images.githubusercontent.com/55377207/109254103-55fc7780-77bf-11eb-87e7-3f25968d4d50.png)
 
+Data Pre-Processing:
+To develop our predictive model, we obtained data on patient demographics, vaccinations, and reported symptoms from the Vaccine Adverse Event Reporting System (VAERS) 2021 data sets, processed up to February 12th 2021. The three sets from VAERS were cross-referenced and merged into a single spreadsheet consisting of 8,582 patient entries covering 12,617 features. Reported symptoms were codified using hierarchical categorization based on the Medical Dictionary for Regulatory Activities Terminology (MedDRA®) standard system, which is the international medical terminology developed under the auspices of the International Council for Harmonisation of Technical Requirements for Pharmaceuticals for Human Use (ICH). MedDRA® trademark is registered by ICH.
+
+Feature Selection & Data Normalization:
+
+Patient demographic metadata underwent a Chi-Squared significance test to pre-select features that correlated with adverse events. The selected features then underwent MinMax scaling to normalize the data for use in training a machine learning model.
+
+Machine Learning Model:
+For our machine learning model we utilized a support vector machine algorithm.  
+
 
 ## Results 
 

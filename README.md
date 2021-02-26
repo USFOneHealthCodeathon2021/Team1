@@ -26,6 +26,7 @@ Machine Learning Model:
 
 
 ## Results 
+We found some critical features that predict vaccine adverse events such as life-threatening illness, hospitalization, deaths, etc. Medication intake and allergies to different medications play a significant role in the prediction. Also, alcohol usage is a strong predictor for outcome variables. 
 
 ## Conclusion
 

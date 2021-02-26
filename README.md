@@ -2,7 +2,7 @@
 ---
 **Team Leaders**: Anujit Sarkar, Agaz	Wani
 
-**Team Members**:  Ashley Lui, Zoe Taylor, Jiyoun Yoo, Krishna Sharma, Nicole Avalon, Peter Radulovic, Ashley Adenslow, Yibo Dong
+**Team Members**:  Ashley Lui, Zoe Taylor, Jiyoun Yoo, Krishna Sharma, Nicole Avalon, Peter Radulovic, Ashley Denslow, Yibo Dong
 
 **GVN/USF mentors**:
 

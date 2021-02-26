@@ -23,6 +23,13 @@ Feature Selection & Data Normalization:
 
 Machine Learning Model:
 >For our machine learning model we utilized a support vector machine algorithm.  
+>
+
+## System Requirements
+Memory: > 4GB
+Python 3
+Sklearn
+Django 3.1.7
 
 
 ## Results 

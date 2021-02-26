@@ -26,12 +26,12 @@ Machine Learning Model:
 >
 
 ## System Requirements
-  *Memory: > 4GB
-  *Python 3
-  *Sklearn
-  *Django 3.1.7
-  *boostrap 3.4.1
-  *Javascript
+  * Memory: > 4GB
+  * Python 3
+  * Sklearn
+  * Django 3.1.7
+  * boostrap 3.4.1
+  * Javascript
 
 
 

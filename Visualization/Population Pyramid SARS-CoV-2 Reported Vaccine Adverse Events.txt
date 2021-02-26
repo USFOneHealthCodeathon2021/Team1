@@ -1,0 +1,39 @@
+import pandas as pd 
+import plotly.graph_objects as gp
+
+df = pd.DataFrame({'Age': ['0-4','5-9','10-14','15-19','20-24','25-29','30-34','35-39','40-44','45-49','50-54','55-59','60-64','65-69','70-74','75-79','80-84','85-89','90-94','95-99','100+'], 
+                   'M':[0,0,0,-6,-27,-41,-61,-64,-74,-70,-87,-81,-121,-123,-160,-164,- 147, -99,-79,-18,-3],
+                   'F':[2, 0,0,14,83,195,242,306,271,233,247,228,174,173,140,128,127,130, 90,43,11]})
+
+
+y_age = df['Age'] 
+x_M = df['M'] 
+x_F = df['F']
+
+
+fig = gp.Figure() 
+
+
+fig.add_trace(gp.Bar(y= y_age, x = x_M, 
+                    name = 'Male', 
+                    orientation = 'h')) 
+
+fig.add_trace(gp.Bar(y = y_age, x = x_F, 
+                    name = 'Female', orientation = 'h')) 
+
+
+fig.update_layout(title = 'SARS-CoV-2 Reported Vaccine Adverse Events', 
+                title_font_size = 25, barmode = 'relative', 
+                bargap = 0.0, bargroupgap = 0, 
+                xaxis = dict(tickvals = [-300, -200, -100, 
+                                        0, 100, 200, 300], 
+
+                            ticktext = ['300', '200', '100', '0', 
+                                            '100', '200', '300'], 
+                            
+                            title = 'Number of Reported Vaccine Adverse Events', 
+                            title_font_size = 18) 
+                ) 
+fig.update_yaxes(title='Age', title_font_size=20)
+
+fig.show()

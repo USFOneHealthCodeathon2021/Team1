@@ -1,0 +1,11 @@
+import plotly.graph_objs as go
+sex=['Male','Female', 'Unidentified']
+reports=[1632,3291, 294]
+data=[go.Bar(x=sex, y=reports)]
+fig=go.Figure(data=data)
+fig.update_yaxes(title='Number of Adverse Event Reports',title_font_size=15)
+fig.update_xaxes(title='Sex', title_font_size=15)
+fig.update_layout(title = 'SARS-CoV-2 Reported Vaccine Adverse Events as Compared to Sex', 
+                title_font_size = 25, barmode = 'relative', 
+                bargap = 0.0, bargroupgap = 0)
+fig.show()

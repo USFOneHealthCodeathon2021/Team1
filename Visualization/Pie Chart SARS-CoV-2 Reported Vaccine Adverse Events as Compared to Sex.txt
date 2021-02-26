@@ -1,0 +1,12 @@
+import plotly
+from plotly.offline import iplot, init_notebook_mode
+init_notebook_mode(connected=True)
+import plotly.graph_objs as go
+sex=['Male','Female', 'Unidentified']
+reports=[1632,3291, 294]
+trace=go.Pie(labels=sex, values= reports)
+data=[trace]
+fig=go.Figure(data=data)
+fig.update_layout(title = 'SARS-CoV-2 Reported Vaccine Adverse Events as Compared to Sex', 
+                title_font_size = 25)
+iplot(fig)

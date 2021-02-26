@@ -1,0 +1,8 @@
+import pandas as pd
+import plotly.express as px
+data=pd.read_csv("C:/Users/densl/Documents/1-MSPN/Codeathon/covid19_vaccinations_in_the_united_states-compared-to-adverse-events.csv")
+fig=px.choropleth(data, locations='State', locationmode="USA-states", color='Percentage of Vaccine Adverse Events', color_continuous_scale="reds",
+                  scope="usa")    
+fig.update_layout(
+    title_text='Percentage of Vaccine Adverse Events as Compared to All Vaccines Administered')
+fig.show()

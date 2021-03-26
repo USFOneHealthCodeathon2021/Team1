@@ -1,0 +1,30 @@
+import plotly.graph_objects as go
+
+headerColor = 'darkred'
+rowEvenColor = 'lightgrey'
+rowOddColor = 'white'
+
+fig = go.Figure(data=[go.Table(
+  header=dict(
+    values=['<b>Location</b>','<b>Number of Reported Vaccine Adverse Events<b>','<b>Number of Vaccines Administered</b>','<b>Percentage of Vaccines with Reported Adverse Events</b>'],
+    line_color='darkslategray',
+    fill_color=headerColor,
+    align=['left','center'],
+    font=dict(color='white', size=12)
+  ),
+  cells=dict(
+    values=[
+      ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York State','North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania','Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming','District of Columbia', 'Guam','Marshall Islands', 'Puerto Rico', 'Unknown','<b>TOTAL</b>'],
+      [53, 22, 116, 62, 389, 66,45,10,317,87,29,24,145,84,44,40, 87,78,19, 72,163,157,105,22, 95, 23, 28,34,35,121,34,280,143,21,149,62,43,167,18,46,19,91,256,21,14,132,78,22,88,8,6,6,1,22,980, 5279],
+      [16892928,5437805,29998842,13389631,160867876,27332439,20072763,4296215,97118806,40711880,6589038,6665960,50818288,28954474,12775038,10857513,19237734,21201674,6432713,23978004,29939109,44920884,24712425,11308589,22876430,5070088,8418446,11911840,6062588,37987017,12573046,85646247,44794470,4481097,47048148,20185529,18960854,51351222,4404730,20044124,5002170,27840399,115378006,14713261,3213091,38088653,32557535,11536848,25198987,2737609, 3780613,1007156,182724,11122100, 'Unknown', 1408685656],
+      [0.000313741,0.000404575,0.000386682,0.000463045,0.000241813,0.000241471,0.000224184,0.000232763,0.000326404,0.000213697,0.000440125,0.000360038,0.00028533,0.000290111,0.000344422,0.000368408,0.000452236,0.000367895,0.000295365,0.000300275,0.000544438,0.000349503,0.000424887,0.000194542,0.000415275,0.000453641,0.000332603,0.00028543,0.000577311,0.00031853,0.00027042,0.000326926,0.000319236,0.000468635,0.000316697,0.000307151,0.000226783,0.000325211,0.000408652,0.000229494,0.000379835,0.000326863,0.000221879,0.000142728,0.000435718,0.00034656,0.000239576,0.000190693,0.00034922,0.000292226, 0.0001587, 0.00059574, 0.00054727,0.0001978, 'Unknown',0.000374746]],
+    line_color='darkslategray',
+    # 2-D list of colors for alternating rows
+    fill_color = [[rowOddColor,rowEvenColor]*30],
+    align = ['left', 'center'],
+    font = dict(color = 'darkslategray', size = 13)
+    ))
+])
+
+fig.update_layout(width=1000, height=1400)
+fig.show()
